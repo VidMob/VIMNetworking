@@ -24,6 +24,7 @@
 //  THE SOFTWARE.
 //
 
+#import "VIMReachability.h"
 #import "VIMRequestOperationManager.h"
 #import "AFHTTPRequestOperation.h"
 #import "VIMMappable.h"
@@ -343,7 +344,15 @@ NSString *const kVimeoClient_InvalidTokenNotification = @"kVimeoClient_InvalidTo
             {
                 if (completionBlock)
                 {
-                    completionBlock(response, error);
+                    // Delay by a couple of seconds in case we're currently connecting [CL]
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        NSLog(@"Running this delayed stuff");
+                        if (![VIMReachability sharedInstance].isNetworkReachable)
+                        {
+                            completionBlock(response, error);
+                        }
+                    });
+                    
                 }
             }
             
