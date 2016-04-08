@@ -70,11 +70,7 @@ static VIMSession *_sharedSession;
 
 + (void)setupWithConfiguration:(VIMSessionConfiguration *)configuration
 {
-    static dispatch_once_t onceToken;
-
-    dispatch_once(&onceToken, ^{
-        _sharedSession = [[VIMSession alloc] initWithConfiguration:configuration];
-    });
+    _sharedSession = [[VIMSession alloc] initWithConfiguration:configuration];
 }
 
 - (instancetype)initWithConfiguration:(VIMSessionConfiguration *)configuration
