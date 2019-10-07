@@ -29,7 +29,7 @@
 #if __has_include(<AFNetworking/AFNetworking.h>)
 #import <AFNetworking/AFNetworking.h>
 #else
-#import "AFNetworking.h"
+#import "AFNetworkReachabilityManager.h"
 #endif
 
 NSString * const VIMReachabilityStatusChangeOfflineNotification = @"VIMReachabilityStatusChangeOfflineNotification";

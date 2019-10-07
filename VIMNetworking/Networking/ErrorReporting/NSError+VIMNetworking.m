@@ -11,7 +11,7 @@
 #if __has_include(<AFNetworking/AFNetworking.h>)
 #import <AFNetworking/AFNetworking.h>
 #else
-#import "AFNetworking.h"
+#import "AFURLResponseSerialization.h"
 #endif
 
 // A numeric error code that provides direction as to why the error occurred,

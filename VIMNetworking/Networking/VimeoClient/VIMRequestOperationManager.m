@@ -34,12 +34,6 @@
 #import "NSError+VIMNetworking.h"
 #import "VIMJSONResponseSerializer.h"
 
-#if __has_include(<AFNetworking/AFNetworking.h>)
-#import <AFNetworking/AFNetworking.h>
-#else
-#import "AFNetworking.h"
-#endif
-
 CGFloat const kVimeoClientTimeoutInterval = 60;
 NSInteger const kVimeoClientErrorCodeCacheUnavailable = 666;
 NSString *const kVimeoClientErrorDomain = @"VimeoClientErrorDomain";
